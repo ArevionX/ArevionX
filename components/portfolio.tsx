@@ -18,7 +18,7 @@ export default function Portfolio() {
       id: 2,
       title: 'E-Commerce Mobile App',
       description: 'Cross-platform shopping experience with seamless checkout and inventory sync',
-      tags: ['React Native', 'Stripe', 'Firebase'],
+      tags: ['React Native', 'Stripe', 'Supabase'],
       image: '/portfolio-2.jpg',
     },
     {
