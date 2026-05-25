@@ -1,5 +1,6 @@
 'use client'
 
+// check git changes
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Moon, Sun, Globe, Smartphone, ShoppingCart, Database, Code2, Palette, ArrowRight, Zap, Lock, GitBranch, MessageSquare, Mail, Phone, MapPin } from 'lucide-react'
 import { useState, useEffect } from 'react'
