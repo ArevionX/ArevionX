@@ -1,72 +1,75 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Mail } from 'lucide-react'
+import { useState } from 'react'
+import Image from 'next/image'
 
 export default function CTA() {
+  const [email, setEmail] = useState('')
+
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="contact" className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="relative rounded-3xl overflow-hidden"
+        className="max-w-2xl mx-auto text-center"
       >
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 blur-2xl" />
+        {/* Heading */}
+        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-foreground tracking-tight">
+          Subscribe to our newsletter
+        </h2>
+        <p className="text-foreground/60 text-base mb-10">
+          Sign up today and get a free sample up to 100 records.
+        </p>
 
-        {/* Glass card */}
-        <div className="relative glass border border-border/20 rounded-3xl p-12 sm:p-16 lg:p-20 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl font-bold mb-6 text-balance text-foreground"
-          >
-            Ready to Transform Your Business
-            <br />
-            <span className="text-primary">Digitally?</span>
-          </motion.h2>
+        {/* Email Input Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-2 max-w-md mx-auto mb-6"
+        >
+          <div className="flex-1 flex items-center gap-2 border border-border rounded-lg px-4 py-3 bg-background shadow-sm focus-within:ring-2 focus-within:ring-primary/30 transition-all">
+            <Mail size={16} className="text-muted-foreground flex-shrink-0" />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
+            />
+          </div>
+          <button className="bg-foreground text-background text-sm font-semibold px-5 py-3 rounded-lg hover:bg-foreground/90 transition-colors whitespace-nowrap">
+            Get started
+          </button>
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-lg text-foreground/70 max-w-2xl mx-auto mb-10"
-          >
-            Get a free consultation from our expert team and discover how we can help you build
-            the digital solution your business needs.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-6 text-lg font-semibold group shadow-lg hover:shadow-xl transition-shadow">
-              Start Your Project Today
-              <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </motion.div>
-
-          {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="mt-8 text-foreground/50 text-sm"
-          >
-            No credit card required • Free initial consultation • Response within 24 hours
-          </motion.p>
-        </div>
+        {/* Avatar stack + helper text */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center gap-3"
+        >
+          {/* Overlapping avatars */}
+          <div className="flex -space-x-2">
+            {['/avatar-1.jpg', '/avatar-2.jpg', '/avatar-3.jpg'].map((src, i) => (
+              <div
+                key={i}
+                className="w-8 h-8 rounded-full border-2 border-background overflow-hidden relative"
+                style={{ zIndex: 3 - i }}
+              >
+                <Image src={src} alt={`Expert ${i + 1}`} fill className="object-cover" />
+              </div>
+            ))}
+          </div>
+          <span className="text-sm text-muted-foreground">Our experts are ready to help!</span>
+        </motion.div>
       </motion.div>
     </section>
   )
