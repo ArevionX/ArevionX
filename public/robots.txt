@@ -1,0 +1,13 @@
+# robots.txt for arevionx.com
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Disallow admin / private paths (add more as needed)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /dist/
+
+# Sitemap location
+Sitemap: https://arevionx.com/sitemap.xml
