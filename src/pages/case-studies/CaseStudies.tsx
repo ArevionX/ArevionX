@@ -61,7 +61,7 @@ const testimonials = [
   },
 ];
 
-export function Portfolio() {
+export function CaseStudies() {
   return (
     <main className="min-h-screen">
       <Navbar />

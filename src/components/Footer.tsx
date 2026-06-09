@@ -45,7 +45,7 @@ export function Footer() {
             <h4 className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Quick Links</h4>
             <ul className="space-y-3 text-[15px]">
               <li><Link to="/#services" className="text-foreground/80 hover:text-accent transition-colors">Services</Link></li>
-              <li><Link to="/portfolio" className="text-foreground/80 hover:text-accent transition-colors">Case Studies</Link></li>
+              <li><Link to="/case-studies" className="text-foreground/80 hover:text-accent transition-colors">Case Studies</Link></li>
               <li><Link to="/about" className="text-foreground/80 hover:text-accent transition-colors">About Us</Link></li>
               <li><Link to="/faq" className="text-foreground/80 hover:text-accent transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="text-foreground/80 hover:text-accent transition-colors">Contact Us</Link></li>
