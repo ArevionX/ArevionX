@@ -1,4 +1,4 @@
-import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
+import { Linkedin, Instagram, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import arevionxLogo from "@/assets/img/arevionx-logo.png";
 
@@ -10,8 +10,7 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
-const quickLinks = ["Services", "Portfolio", "About Us", "FAQ", "Contact Us"];
-const social = ["LinkedIn", "Instagram", "Twitter / X", "Facebook", "Youtube"];
+const social = ["LinkedIn", "Instagram", "Twitter / X", "Facebook"];
 const legal = ["Terms of service", "Privacy policy", "Cookie policy", "Sitemap"];
 
 export function Footer() {
@@ -34,11 +33,10 @@ export function Footer() {
               We craft scalable digital products — from startups to enterprises, delivered with precision.
             </p>
             <div className="flex items-center gap-5 text-muted-foreground">
-              <a href="#" aria-label="LinkedIn" className="hover:text-accent transition-colors"><Linkedin className="h-5 w-5" /></a>
-              <a href="#" aria-label="Instagram" className="hover:text-accent transition-colors"><Instagram className="h-5 w-5" /></a>
-              <a href="#" aria-label="Twitter" className="hover:text-accent transition-colors"><XIcon className="h-[18px] w-[18px]" /></a>
-              <a href="#" aria-label="Facebook" className="hover:text-accent transition-colors"><Facebook className="h-5 w-5" /></a>
-              <a href="#" aria-label="YouTube" className="hover:text-accent transition-colors"><Youtube className="h-5 w-5" /></a>
+              <a href="https://www.linkedin.com/company/arevionx/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-accent transition-colors"><Linkedin className="h-5 w-5" /></a>
+              <a href="https://www.instagram.com/arevionx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-accent transition-colors"><Instagram className="h-5 w-5" /></a>
+              <a href="https://x.com/ArevionX" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-accent transition-colors"><XIcon className="h-[18px] w-[18px]" /></a>
+              <a href="https://www.facebook.com/profile.php?id=61589969877894" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-accent transition-colors"><Facebook className="h-5 w-5" /></a>
             </div>
           </div>
 
@@ -46,9 +44,11 @@ export function Footer() {
           <div className="space-y-5">
             <h4 className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Quick Links</h4>
             <ul className="space-y-3 text-[15px]">
-              {quickLinks.map((l) => (
-                <li key={l}><a href="#" className="text-foreground/80 hover:text-accent transition-colors">{l}</a></li>
-              ))}
+              <li><Link to="/#services" className="text-foreground/80 hover:text-accent transition-colors">Services</Link></li>
+              <li><Link to="/portfolio" className="text-foreground/80 hover:text-accent transition-colors">Case Studies</Link></li>
+              <li><Link to="/about" className="text-foreground/80 hover:text-accent transition-colors">About Us</Link></li>
+              <li><Link to="/faq" className="text-foreground/80 hover:text-accent transition-colors">FAQ</Link></li>
+              <li><Link to="/contact" className="text-foreground/80 hover:text-accent transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -56,9 +56,10 @@ export function Footer() {
           <div className="space-y-5">
             <h4 className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">Social</h4>
             <ul className="space-y-3 text-[15px]">
-              {social.map((l) => (
-                <li key={l}><a href="#" className="text-foreground/80 hover:text-accent transition-colors">{l}</a></li>
-              ))}
+              <li><a href="https://www.linkedin.com/company/arevionx/" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-accent transition-colors">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/arevionx/" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-accent transition-colors">Instagram</a></li>
+              <li><a href="https://x.com/ArevionX" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-accent transition-colors">Twitter / X</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61589969877894" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-accent transition-colors">Facebook</a></li>
             </ul>
           </div>
 

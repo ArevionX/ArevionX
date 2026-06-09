@@ -13,10 +13,10 @@ export function CTA() {
             whether that's a quote, a discovery sprint, or a thoughtful "not us."
           </p>
           <a
-            href="mailto:hello@arevionx.com"
+            href="mailto:arevionx@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Let%27s%20Build%20Something"
             className="inline-flex items-center gap-2 rounded-full bg-accent text-accent-foreground px-8 py-4 text-base font-medium hover:opacity-90 transition-opacity"
           >
-            hello@arevionx.com →
+            arevionx@gmail.com →
           </a>
         </div>
       </div>
