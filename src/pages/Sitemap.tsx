@@ -5,7 +5,7 @@ import {
   Home, Globe, Smartphone, Bot, Palette, Cloud, Rocket,
   Code2, Server, Brain, Layers, Database, Shield,
   Briefcase, Users, GitBranch, HelpCircle, Mail,
-  FileText, ShieldCheck, Cookie, Map,
+  Map,
 } from "lucide-react";
 
 const sections: {
@@ -67,16 +67,7 @@ const sections: {
       { href: "/contact", label: "Contact", desc: "Start a conversation — get a quote or kick off a discovery sprint.", icon: <Mail className="h-5 w-5" /> },
     ],
   },
-  {
-    label: "Legal",
-    color: "bg-muted/60 border-border",
-    accent: "text-muted-foreground",
-    pages: [
-      { href: "/terms", label: "Terms of Service", desc: "Rules and agreements governing use of Arevionx services.", icon: <FileText className="h-5 w-5" /> },
-      { href: "/privacy", label: "Privacy Policy", desc: "How we collect, use, and protect your personal data.", icon: <ShieldCheck className="h-5 w-5" /> },
-      { href: "/cookies", label: "Cookie Policy", desc: "What cookies we use and how to manage your preferences.", icon: <Cookie className="h-5 w-5" /> },
-    ],
-  },
+
   {
     label: "Utility",
     color: "bg-muted/60 border-border",
