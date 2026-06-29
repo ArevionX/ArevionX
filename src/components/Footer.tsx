@@ -25,7 +25,7 @@ export function Footer() {
               <img
                 src={arevionxLogo}
                 alt="Arevionx Logo"
-                className="h-10 w-10 object-contain"
+                className="h-10 w-10 rounded-full object-cover"
               />
               <span className="font-display text-3xl tracking-tight">arevionx</span>
             </div>

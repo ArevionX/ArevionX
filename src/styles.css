@@ -35,6 +35,22 @@
   --animate-marquee: marquee 30s linear infinite;
   --animate-blink: blink 1s steps(2) infinite;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-hero-btn: hero-btn-enter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hero-shimmer: hero-shimmer 2.8s ease-in-out infinite;
+  --animate-mega-float: mega-float 4s ease-in-out infinite;
+  --animate-mega-orbit: mega-orbit 8s linear infinite;
+  --animate-mega-orbit-reverse: mega-orbit-reverse 12s linear infinite;
+  --animate-mega-chart: mega-chart 2.2s ease-in-out infinite;
+  --animate-mega-bar: mega-bar 2s ease-in-out infinite;
+  --animate-mega-pulse: mega-pulse 3s ease-in-out infinite;
+  --animate-mega-pulse-delayed: mega-pulse 3s ease-in-out 0.6s infinite;
+  --animate-mega-node: mega-node 2.4s ease-in-out infinite;
+  --animate-mega-node-delayed: mega-node 2.4s ease-in-out 0.8s infinite;
+  --animate-mega-node-center: mega-node 2.4s ease-in-out 0.4s infinite;
+  --animate-mega-line: mega-line 2s ease-in-out infinite;
+  --animate-mega-line-delayed: mega-line 2s ease-in-out 0.5s infinite;
+  --animate-mega-dot: mega-pulse 2.5s ease-in-out infinite;
+  --animate-mega-dot-delayed: mega-pulse 2.5s ease-in-out 0.7s infinite;
 }
 
 @keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
@@ -42,6 +58,46 @@
 @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
 @keyframes blink { 50% { opacity: 0 } }
 @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+@keyframes hero-btn-enter {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes hero-shimmer {
+  0%, 100% { box-shadow: 0 4px 24px -4px oklch(0.18 0.01 250 / 0.18); }
+  50% { box-shadow: 0 8px 32px -4px oklch(0.68 0.19 42 / 0.35); }
+}
+@keyframes mega-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes mega-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes mega-orbit-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes mega-chart {
+  0%, 100% { transform: scaleY(0.65); opacity: 0.55; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+@keyframes mega-bar {
+  0%, 100% { opacity: 0.35; transform: scaleX(0.85); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+@keyframes mega-pulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.5; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+@keyframes mega-node {
+  0%, 100% { transform: translateY(-50%) scale(1); box-shadow: 0 0 0 0 oklch(0.68 0.19 42 / 0); }
+  50% { transform: translateY(-50%) scale(1.05); box-shadow: 0 0 12px 2px oklch(0.68 0.19 42 / 0.25); }
+}
+@keyframes mega-line {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
 
 :root {
   --radius: 0.75rem;

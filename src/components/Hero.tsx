@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const rotating = ["your idea.", "your MVP.", "your startup.", "your scale."];
 
@@ -44,20 +46,27 @@ export function Hero() {
           Arevionx is a software development company partnering with founders and product
           teams to design, ship, and scale modern web, mobile, and AI products — end to end.
         </p>
-        <div className="mt-10 flex items-center justify-center gap-3">
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-medium hover:bg-foreground/90 transition-all"
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <Link
+            to="/contact"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground text-background px-7 py-3.5 text-sm font-medium animate-hero-btn transition-all duration-300 hover:-translate-y-0.5 hover:bg-foreground/90 hover:shadow-[0_8px_30px_-12px_oklch(0.18_0.01_250/0.45)] active:translate-y-0 active:scale-[0.98]"
+            style={{ animationDelay: "0.55s" }}
           >
-            Get a quote
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </a>
-          <a
-            href="#services"
-            className="rounded-full border border-border bg-card px-6 py-3 text-sm font-medium hover:bg-secondary transition-colors"
+            <span className="relative z-10">Contact</span>
+            <ArrowRight className="relative z-10 h-4 w-4 transition-all duration-300 group-hover:translate-x-1" />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+            />
+          </Link>
+          <Link
+            to="/process"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium animate-hero-btn transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-secondary hover:shadow-[0_8px_30px_-12px_oklch(0.68_0.19_42/0.35)] active:translate-y-0 active:scale-[0.98]"
+            style={{ animationDelay: "0.7s" }}
           >
-            What we do
-          </a>
+            Explore our process
+            <ArrowRight className="h-4 w-4 text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent" />
+          </Link>
         </div>
       </div>
     </section>

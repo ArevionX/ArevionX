@@ -2,22 +2,17 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import arevionxLogo from "@/assets/img/arevionx-logo.png";
+import { ServicesMegaMenu, servicesMenuItems } from "@/components/ServicesMegaMenu";
 
 type NavItem =
-  | { label: string; href: string; items?: never }
-  | { label: string; href?: never; items: { label: string; desc: string; href: string }[] };
+  | { label: string; href: string; items?: never; megaMenu?: never }
+  | { label: string; href?: never; items: { label: string; desc: string; href: string }[]; megaMenu?: never }
+  | { label: string; href?: never; items?: never; megaMenu: true };
 
 const navItems: NavItem[] = [
   {
     label: "Services",
-    items: [
-      { label: "Web Development", desc: "Modern, scalable web apps", href: "/services/web-development" },
-      { label: "Mobile Apps", desc: "iOS & Android native/cross-platform", href: "/services/mobile-apps" },
-      { label: "AI & Automation", desc: "LLM integrations & smart workflows", href: "/services/ai-automation" },
-      { label: "UI/UX Design", desc: "Pixel-perfect product design", href: "/services/ui-ux-design" },
-      { label: "Cloud & DevOps", desc: "Infrastructure, CI/CD & scaling", href: "/services/cloud-devops" },
-      { label: "MVP Development", desc: "From idea to launch, fast", href: "/services/mvp-development" },
-    ],
+    megaMenu: true,
   },
   {
     label: "Technologies",
@@ -88,7 +83,7 @@ export function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0">
-          <img src={arevionxLogo} alt="Arevionx Logo" className="h-9 w-9 object-contain" />
+          <img src={arevionxLogo} alt="Arevionx Logo" className="h-9 w-9 rounded-full object-cover" />
           <span className="font-semibold tracking-tight text-xl font-display">arevionx</span>
         </Link>
 
@@ -98,8 +93,8 @@ export function Navbar() {
             <div
               key={item.label}
               className="relative"
-              onMouseEnter={() => item.items && setOpenIndex(i)}
-              onMouseLeave={() => item.items && setOpenIndex(null)}
+              onMouseEnter={() => (item.items || item.megaMenu) && setOpenIndex(i)}
+              onMouseLeave={() => (item.items || item.megaMenu) && setOpenIndex(null)}
             >
               {item.href ? (
                 /* Direct link — no dropdown */
@@ -124,6 +119,13 @@ export function Navbar() {
                     className={`h-3.5 w-3.5 transition-transform duration-200 ${openIndex === i ? "rotate-180" : ""}`}
                   />
                 </button>
+              )}
+
+              {item.megaMenu && openIndex === i && (
+                <>
+                  <div className="absolute top-full left-0 right-0 h-3" />
+                  <ServicesMegaMenu onNavigate={() => setOpenIndex(null)} />
+                </>
               )}
 
               {item.items && openIndex === i && (
@@ -180,6 +182,34 @@ export function Navbar() {
                       className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${mobileExpanded === i ? "rotate-180" : ""}`}
                     />
                   </button>
+                  {mobileExpanded === i && item.megaMenu && (
+                    <div className="mt-1 ml-3 space-y-0.5 border-l-2 border-accent/30 pl-3">
+                      {servicesMenuItems.map((sub) => (
+                        <Link
+                          key={sub.label}
+                          to={sub.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex flex-col gap-0.5 px-3 py-2 rounded-lg hover:bg-accent/10 transition-colors"
+                        >
+                          <span className="text-sm font-medium text-foreground">{sub.label}</span>
+                          <span className="text-xs text-muted-foreground">{sub.desc}</span>
+                        </Link>
+                      ))}
+                      <Link
+                        to="/"
+                        onClick={() => {
+                          setMobileOpen(false);
+                          if (window.location.pathname === "/") {
+                            setTimeout(() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" }), 100);
+                          }
+                        }}
+                        className="flex items-center justify-between px-3 py-2.5 mt-1 rounded-lg bg-foreground text-background text-sm font-medium"
+                      >
+                        View all services
+                        <span>→</span>
+                      </Link>
+                    </div>
+                  )}
                   {mobileExpanded === i && item.items && (
                     <div className="mt-1 ml-3 space-y-0.5 border-l-2 border-accent/30 pl-3">
                       {item.items.map((sub) => (
