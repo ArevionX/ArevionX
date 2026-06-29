@@ -26,8 +26,8 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Case Studies",
-    href: "/case-studies",
+    label: "Portfolio",
+    href: "/portfolio",
   },
   {
     label: "Company",

@@ -4,8 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Sitemap } from "./pages/Sitemap";
 
-// Case Studies
-import { CaseStudies } from "./pages/case-studies/CaseStudies";
+// Portfolio
+import { Portfolio } from "./pages/portfolio/Portfolio";
 
 // Company
 import { About } from "./pages/company/About";
@@ -36,8 +36,8 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/sitemap" element={<Sitemap />} />
 
-      {/* Case Studies */}
-      <Route path="/case-studies" element={<CaseStudies />} />
+      {/* Portfolio */}
+      <Route path="/portfolio" element={<Portfolio />} />
 
       {/* Company */}
       <Route path="/about" element={<About />} />

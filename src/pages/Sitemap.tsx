@@ -49,11 +49,11 @@ const sections: {
     ],
   },
   {
-    label: "Case Studies",
+    label: "Portfolio",
     color: "bg-orange-500/10 border-orange-500/30",
     accent: "text-orange-500",
     pages: [
-      { href: "/case-studies", label: "Case Studies", desc: "Deep dives into shipped projects, client results, and testimonials.", icon: <Briefcase className="h-5 w-5" /> },
+      { href: "/portfolio", label: "Portfolio", desc: "Selected works and engineering challenges.", icon: <Briefcase className="h-5 w-5" /> },
     ],
   },
   {
